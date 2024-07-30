@@ -8,7 +8,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setSearchTerm }) => {
     setSearchTerm(event.target.value);
   };
   return (
-    <div className="bg-gray-800 p-4 rounded">
+    <div className="p-4 rounded">
       <input
         type="text"
         placeholder="Search items..."

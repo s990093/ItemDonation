@@ -6,6 +6,7 @@ import {
   FaHeart,
   FaTshirt,
   FaGift,
+  FaUpload,
 } from "react-icons/fa";
 
 const Navbar = () => {
@@ -39,16 +40,22 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex space-x-4">
-          <Link href="/category/free">
+          {/* <Link href="/free">
             <div className="text-white flex items-center space-x-2">
               <FaGift />
               <span>Free Items</span>
             </div>
-          </Link>
-          <Link href="/category/fashion">
+          </Link> */}
+          <Link href="/fashion">
             <div className="text-white flex items-center space-x-2">
               <FaTshirt />
               <span>Fashion</span>
+            </div>
+          </Link>
+          <Link href="/upload">
+            <div className="text-white flex items-center space-x-2">
+              <FaUpload />
+              <span>Upload</span>
             </div>
           </Link>
           {/* Add more categories as needed */}

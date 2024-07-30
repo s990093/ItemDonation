@@ -19,14 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en dark-model">
-      <>
-        {/* <ScrollRestoration> */}
-        <body className={inter.className}>
-          <Navbar />
-          <div>{children}</div>
-          <Footer />
-        </body>
-      </>
+      <body className={inter.className}>
+        <Navbar />
+        <div>{children}</div>
+        <Footer />
+      </body>
     </html>
   );
 }

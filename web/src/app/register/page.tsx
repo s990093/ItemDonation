@@ -4,9 +4,6 @@ import Link from "next/link";
 const Register = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center">
-      <Head>
-        <title>Register</title>
-      </Head>
       <div className="bg-gray-800 p-8 rounded">
         <h1 className="text-2xl mb-4">Register</h1>
         <form>
@@ -38,7 +35,7 @@ const Register = () => {
         <p className="mt-4">
           Already have an account?{" "}
           <Link href="/login">
-            <a className="text-blue-400">Login</a>
+            <div className="text-blue-400">Login</div>
           </Link>
         </p>
       </div>

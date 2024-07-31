@@ -5,8 +5,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { DJANGO_URL } from "../constant";
+import { useAuth } from "../Provider/AuthContext";
 
 const Register = () => {
+  const { isLoggedIn, logout, login } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -20,9 +22,9 @@ const Register = () => {
         password,
         email,
       });
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("username", data.username);
-      window.location.reload(); // Reload the page
+      // localStorage.setItem("token", response.data.token);
+      // localStorage.setItem("username", response.data.username);
+      login(response.data.token, response.data.username);
 
       router.push("/");
     } catch (error) {

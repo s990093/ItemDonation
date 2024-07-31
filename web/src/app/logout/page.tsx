@@ -1,11 +1,18 @@
 "use client";
 // pages/logout.js
 import { useEffect } from "react";
-import logout from "../utils/logout";
+import { useAuth } from "../Provider/AuthContext";
+import handleLogout from "../utils/logout";
+import { useRouter } from "next/navigation";
 
 const Logout = () => {
+  const router = useRouter();
+  const { logout } = useAuth();
+
   useEffect(() => {
+    handleLogout();
     logout();
+    router.push("/");
   }, []);
 
   return (

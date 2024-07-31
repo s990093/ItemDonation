@@ -1,6 +1,7 @@
-// export const DJANGO_IP = "127.0.0.1";
-export const DJANGO_IP = "49.213.238.75";
-export const DJANGO_PORT = "8001";
+export const DJANGO_IP = "127.0.0.1";
+// export const DJANGO_IP = "49.213.238.75";
+// export const DJANGO_PORT = "8001";
+export const DJANGO_PORT = "8000";
 export const NIGIX_PORT = "8001";
 export const NIGIX_T_PORT = "8002";
 

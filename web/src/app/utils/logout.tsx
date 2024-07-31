@@ -1,7 +1,7 @@
 // utils/logout.js
 import { DJANGO_URL } from "../constant";
 
-const logout = async () => {
+const handleLogout = async () => {
   // Optionally, you can make an API call to your Django backend to invalidate the session
   try {
     const response = await fetch(DJANGO_URL("web/api/logout/"), {
@@ -16,13 +16,11 @@ const logout = async () => {
 
     if (response.ok) {
       // Successfully logged out
-      localStorage.removeItem("token"); // Remove token from localStorage
-      localStorage.removeItem("username"); // Remove username from localStorage
-      console.log(data.message); // Log the success message
-
-      window.location.reload(); // Reload the page
-
-      window.location.href = "/login"; // Redirect to login page
+      // localStorage.removeItem("token"); // Remove token from localStorage
+      // localStorage.removeItem("username"); // Remove username from localStorage
+      // // console.log(data.message); // Log the success message
+      // window.location.reload(); // Reload the page
+      // window.location.href = "/login"; // Redirect to login page
     } else {
       // Handle error if logout fails
       const data = await response.json();
@@ -33,4 +31,4 @@ const logout = async () => {
   }
 };
 
-export default logout;
+export default handleLogout;

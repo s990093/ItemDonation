@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { AuthProvider } from "./Provider/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en dark-model">
-      <body className={inter.className}>
-        <Navbar />
-        <div>{children}</div>
-        <Footer />
-      </body>
-    </html>
+    <AuthProvider>
+      <html lang="en dark-model">
+        <body className={inter.className}>
+          <Navbar />
+          <div>{children}</div>
+          <Footer />
+        </body>
+      </html>
+    </AuthProvider>
   );
 }

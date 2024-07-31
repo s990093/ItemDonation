@@ -1,8 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { DJANGO_URL } from "../constant";
+import { useRouter } from "next/navigation";
 
 const ItemUploadForm = () => {
+  const router = useRouter();
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -31,6 +34,7 @@ const ItemUploadForm = () => {
         const errorData = await response.json();
         throw new Error(errorData.message || "Failed to upload item");
       }
+      router.push("/");
 
       // Handle successful upload (e.g., clear the form, show a success message, etc.)
     } catch (error) {

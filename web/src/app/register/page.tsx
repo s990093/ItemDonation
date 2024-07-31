@@ -8,13 +8,13 @@ import { DJANGO_URL } from "../constant";
 import { useAuth } from "../Provider/AuthContext";
 
 const Register = () => {
-  const { isLoggedIn, logout, login } = useAuth();
+  const { login } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const router = useRouter();
 
-  const handleRegister = async (e) => {
+  const handleRegister = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
       const response = await axios.post(DJANGO_URL("web/api/register/"), {

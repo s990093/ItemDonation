@@ -16,10 +16,10 @@ import { useAuth } from "../Provider/AuthContext";
 const Navbar = () => {
   const { isLoggedIn, username, logout } = useAuth();
 
-  useEffect(() => {
-    console.log("isLoggedIn:", isLoggedIn);
-    console.log("username:", username);
-  }, [isLoggedIn, username]);
+  // useEffect(() => {
+  //   console.log("isLoggedIn:", isLoggedIn);
+  //   console.log("username:", username);
+  // }, [isLoggedIn, username]);
 
   const navLinks = [
     { href: "/", label: "Home", icon: <FaHome /> },

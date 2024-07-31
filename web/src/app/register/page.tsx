@@ -1,7 +1,35 @@
+"use client";
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { DJANGO_URL } from "../constant";
 
 const Register = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const router = useRouter();
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(DJANGO_URL("web/api/register/"), {
+        username,
+        password,
+        email,
+      });
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("username", data.username);
+      window.location.reload(); // Reload the page
+
+      router.push("/");
+    } catch (error) {
+      console.error("Registration failed", error);
+    }
+  };
+
   return (
     <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center">
       <div className="bg-gray-800 p-8 rounded">
@@ -12,6 +40,8 @@ const Register = () => {
             <input
               type="text"
               className="w-full p-2 rounded bg-gray-700 text-white"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -19,6 +49,8 @@ const Register = () => {
             <input
               type="email"
               className="w-full p-2 rounded bg-gray-700 text-white"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -26,9 +58,15 @@ const Register = () => {
             <input
               type="password"
               className="w-full p-2 rounded bg-gray-700 text-white"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="bg-blue-600 p-2 rounded w-full">
+          <button
+            type="submit"
+            className="bg-blue-600 p-2 rounded w-full"
+            onClick={handleRegister}
+          >
             Register
           </button>
         </form>

@@ -6,10 +6,10 @@ services:
     container_name: mysql
     restart: always
     environment:
-      MYSQL_DATABASE: your_database_name
-      MYSQL_USER: your_database_user
-      MYSQL_PASSWORD: your_database_password
-      MYSQL_ROOT_PASSWORD: your_root_password
+      MYSQL_DATABASE: 123
+      MYSQL_USER: 123
+      MYSQL_PASSWORD: 123
+      MYSQL_ROOT_PASSWORD: 123
     ports:
       - "3306:3306"
     volumes:
@@ -28,7 +28,7 @@ services:
       dockerfile: Dockerfile
     container_name: django
     restart: always
-    command: gunicorn your_project_name.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn server.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./django:/app
     ports:
@@ -39,9 +39,9 @@ services:
     environment:
       - DATABASE_HOST=mysql
       - DATABASE_PORT=3306
-      - DATABASE_NAME=your_database_name
-      - DATABASE_USER=your_database_user
-      - DATABASE_PASSWORD=your_database_password
+      - DATABASE_NAME=123
+      - DATABASE_USER=123
+      - DATABASE_PASSWORD=123
       - REDIS_HOST=redis
       - REDIS_PORT=6379
 

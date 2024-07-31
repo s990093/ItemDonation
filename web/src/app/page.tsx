@@ -56,7 +56,7 @@ const Home = () => {
       };
 
       try {
-        // Send PATCH request to update the item's quantity_available
+        // Send PATCH request to update the item's ggiquantity_available
         const response = await fetch(
           DJANGO_URL(`web/api/items/${item.id}/rent/`),
           {

@@ -35,11 +35,20 @@ CORS_ORIGIN_WHITELIST = [
     'http://0.0.0.0:3000',  # Next.js 開發伺服器
     'http://0.0.0.0:3001',  # Next.js 開發伺服器
     'http://49.213.238.75:3000',  # 確保包含協議
+    'http://49.213.238.75:3001',  # 確保包含協議
     'http://192.168.0.135:8000',
     'http://192.168.0.135:3000',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3001']
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:3001",
+    'http://0.0.0.0:3000', 
+    'http://0.0.0.0:3001', 
+    'http://49.213.238.75:3000',  
+    'http://49.213.238.75:3001',  
+    'http://192.168.0.135:8000',
+    'http://192.168.0.135:3000',]
 
 
 CORS_ALLOW_METHODS = [
@@ -80,9 +89,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'drf_yasg',
-
     "Web",
 ]
 
@@ -232,3 +241,6 @@ JAZZMIN_UI_TWEAKS = {
     "theme": "cyborg",
     "dark_mode_theme": "cyborg",
 }
+
+
+# AUTH_USER_MODEL = 'Web.CustomUser'

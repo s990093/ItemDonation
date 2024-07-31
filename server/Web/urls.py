@@ -11,4 +11,7 @@ urlpatterns = [
     path('fa-items/', ItemListFACreateView.as_view(), name='item-list-create'),
     path('items/<int:pk>/favorite/', ItemFavoriteView.as_view(), name='item-favorite'),  # For updating favorite status
     path('items/<int:pk>/rent/', ItemRentView.as_view(), name='item-rent'),  # For renting an item
+    path('register/', RegisterView.as_view(), name='register'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('login/', login_view, name='login'),
 ]

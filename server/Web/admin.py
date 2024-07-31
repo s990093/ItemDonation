@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
-from .models import Item
+from .models import *
+from django.contrib.auth.admin import UserAdmin
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
@@ -14,3 +15,5 @@ class ItemAdmin(admin.ModelAdmin):
         return "No Image"
     
     display_image.short_description = 'Image'  # Set the column header in the admin interface
+
+

@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Item } from "./interface/item";
 import { DJANGO_URL } from "./constant";
+import CalssifyNavBar from "./components/CalssifyNavBar";
 
 const Home = () => {
   const [items, setItems] = useState<Item[]>([]);
@@ -124,7 +125,7 @@ const Home = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen">
       <div className="p-4">
-        <SearchBar setSearchTerm={setSearchTerm} />{" "}
+        <SearchBar setSearchTerm={setSearchTerm} /> <CalssifyNavBar />
         {/* Pass setSearchTerm to SearchBar */}
         <div className="grid grid-cols-1 md:grid-cols-1 gap-4 mt-4">
           <div>

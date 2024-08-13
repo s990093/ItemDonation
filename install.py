@@ -1,6 +1,15 @@
 import subprocess
 import sys
-from rich.progress import Progress
+
+# 嘗試導入 rich，如果失敗則安裝
+try:
+    from rich.progress import Progress
+except ImportError:
+    print("rich is not installed. Installing...")
+    if not subprocess.check_call([sys.executable, "-m", "pip", "install", "rich"]):
+        print("Failed to install rich. Please install it manually.")
+        sys.exit(1)
+    from rich.progress import Progress  # 成功安裝後再次導入
 
 def install(package):
     try:
@@ -10,6 +19,7 @@ def install(package):
         return False
 
 def main():
+    # 讀取 requirements.txt 中的包
     with open("requirements.txt", "r") as file:
         packages = [pkg.strip() for pkg in file.readlines() if pkg.strip()]
 

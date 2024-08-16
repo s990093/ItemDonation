@@ -13,7 +13,8 @@ except ImportError:
 
 def install(package):
     try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+        # Redirecting stdout and stderr to suppress installation output
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package], stdout=subprocess.DEVNUping google.comping google.comLL, stderr=subprocess.DEVNULL)
         return True
     except subprocess.CalledProcessError:
         return False
@@ -34,6 +35,8 @@ def main():
             else:
                 progress.console.print(f"[red]Failed to install {package}")
             progress.update(task, advance=1)
+
+        progress.console.print("[blue]Installation completed.")
 
 if __name__ == "__main__":
     main()

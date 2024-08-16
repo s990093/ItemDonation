@@ -35,7 +35,7 @@ const ItemList: React.FC<ItemListProps> = ({
         >
           <button
             className="absolute top-4 right-4 text-red-500 p-2" // Added padding
-            onClick={() => onLike(item)} // Toggle like status
+            onClick={onRent ? () => onRent(item) : undefined}
           >
             <FaHeart
               className={`text-2xl ${
@@ -64,7 +64,7 @@ const ItemList: React.FC<ItemListProps> = ({
           <div className="mt-4">
             <button
               className="flex items-center justify-center bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors transform hover:scale-105"
-              onClick={() => onRent(item)}
+              onClick={onRent ? () => onRent(item) : undefined}
             >
               <FaShoppingCart className="mr-2" />
               Rent Now
